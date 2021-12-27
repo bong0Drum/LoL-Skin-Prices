@@ -54,10 +54,17 @@ def writeSkinDataAndGetTotalRp():
                 dateEl = skin.find("p", class_="date").find()
                 date = '' if dateEl is None else wrapInQuotes(getText(dateEl))
 
-                if skinLine == 'classic':
+                if skinLine.lower() == wrapInQuotes('classic'):
                     continue
                 
-                data = {'name': name, 'cost': cost, 'champName': champName, 'skinLine': skinLine, 'date': date}
+                data = {
+                    'name': name,
+                    'cost': cost,
+                    'champName': champName,
+                    'skinType': skinType,
+                    'skinLine': skinLine,
+                    'date': date
+                }
                 
                 if not wroteHeader:
                     wroteHeader = True
